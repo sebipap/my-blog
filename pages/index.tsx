@@ -13,9 +13,10 @@ export default function Home() {
       <div className={"w-[1000px] mx-auto max-w-full"}>
         <div className=" place-content-center py-auto ">
           {/* vertical align center */}
-          <h1 className="text-white font-bold text-4xl text-center h-[300px] flex items-center justify-center">
-            Sebastián Papanicolau
+          <h1 className="text-white text-4xl font-bold mt-[200px]">
+            sebastián papanicolau 🙋‍♂️
           </h1>
+          <h5 className="text-white mb-9 ">trying out cool stuff</h5>
         </div>
         <Sections />
       </div>
