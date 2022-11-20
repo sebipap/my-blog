@@ -26,14 +26,31 @@ const sections = [
     emoji: "🚀",
     blockStyle: "bg-indigo-500 col-span-2 row-span-2 hover:shadow-indigo/20",
     sectionTitleStyle: "border-indigo-500",
-    sectionBlocksStyle: "bg-indigo-300 shadow-indigo-300/5",
+    sectionBlocksStyle: "bg-indigo-500 shadow-indigo-300/5",
     items: [
+      {
+        title: "La Voluntad",
+        description: "Restaurant Website.",
+        img: "hover:bg-[url('https://lavoluntad.vercel.app/gallery/0.jpg')]",
+        links: {
+          Open: "https://lavoluntad.vercel.app/",
+          Github: "https://github.com/sebipap/la-voluntad",
+        },
+      },
+      {
+        title: "money mover",
+        description: "get steps to move money.",
+        links: {
+          Open: "https://money-mover.vercel.app/",
+          Github: "https://github.com/sebipap/money-mover",
+        },
+      },
       {
         title: "Open Ticket",
         description: "Ticketing for events.",
         img: "hover:bg-[url('https://sebipap.github.io/img/openticket.png')]",
         links: {
-          url: "https://openticket-front.herokuapp.com/",
+          Open: "https://openticket-front.herokuapp.com/",
           Github: "https://github.com/sebipap/openticket-backend",
         },
       },
@@ -42,7 +59,7 @@ const sections = [
         description: "Marketplace for cars.",
         img: "hover:bg-[url('https://sebipap.github.io/img/auto-trader.png')]",
         links: {
-          url: "https://auto-trader-arg.herokuapp.com/posts",
+          Open: "https://auto-trader-arg.herokuapp.com/posts",
           Github: "https://github.com/sebipap/AutoTrader.git",
         },
       },
@@ -51,7 +68,7 @@ const sections = [
         description: "Live prices for crypto and fiat currencies.",
         img: "hover:bg-[url('https://sebipap.github.io/img/crypto-dolar-blue.png')]",
         links: {
-          url: "https://crypto-dolar-blue.herokuapp.com/posts",
+          Open: "https://crypto-dolar-blue.herokuapp.com/posts",
           Github: "https://github.com/sebipap/crypto-dolar-blue",
         },
       },
@@ -60,7 +77,7 @@ const sections = [
         description: "Home banking POC with transfers and QR code payments.",
         img: "col-span-2 hover:bg-[url('https://sebipap.github.io/img/openbank.jpg')]",
         links: {
-          url: "https://sebipaps-openbank.herokuapp.com/",
+          Open: "https://sebipaps-openbank.herokuapp.com/",
           Github: "https://github.com/sebipap/openbank",
         },
       },
@@ -69,7 +86,7 @@ const sections = [
         description: "Poker odds calculator.",
         img: "hover:bg-[url('https://sebipap.github.io/img/pokerstats.jpg')]",
         links: {
-          url: "https://poker-odds-calulator.herokuapp.com/",
+          Open: "https://poker-odds-calulator.herokuapp.com/",
           Github: "https://github.com/sebipap/pokerodds",
         },
       },
@@ -94,37 +111,73 @@ const sections = [
     blockStyle: "bg-teal-400 col-span-2 row-span-1 hover:shadow-teal-400/20",
     sectionTitleStyle: "border-teal-400",
     sectionBlocksStyle: "bg-teal-400",
+    items: [
+      {
+        title: "Github",
+        links: {
+          "Follow Me": "https://github.com/sebipap",
+        },
+        img: "col-span-2 row-span-2 bg-[url('https://cdn-icons-png.flaticon.com/512/25/25231.png')]",
+      },
+      {
+        title: "LinkedIn",
+        links: {
+          "Follow Me":
+            "https://www.linkedin.com/in/sebasti%C3%A1n-papanicolau-10baa91b1/",
+        },
+        img: "col-span-2 bg-[url('https://proinfluent.b-cdn.net/wp-content/uploads/2019/05/Logo-LinkedIn-blanc.png')]",
+      },
+      {
+        title: "Email",
+        description: "sebipaps@gmail.com",
+        img: "bg-[url('https://img.icons8.com/ios_filled/12x/apple-mail.png')]",
+      },
+    ],
   },
   {
-    text: "CV",
+    text: "Resume",
     emoji: "👨‍💻",
     blockStyle: "bg-blue-400 col-span-1 row-span-1 hover:shadow-blue-400/20",
     sectionTitleStyle: "border-blue-400",
     sectionBlocksStyle: "bg-blue-400",
+    items: [
+      {
+        title: "UTN Systems Engineer",
+        description: "2020 - 2022",
+        img: "bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq4IoxAIVlGrzrzCQXSy-VgzKPiR_4D5iOYENPW1FE4cYEZ7VLkW4wtVtapak7G82Etxc&usqp=CAU')]",
+      },
+      {
+        title: "Pluggy",
+        description: "Dev since feb '22",
+        img: "bg-[url('https://avatars.githubusercontent.com/u/52629757?s=280&v=4')]",
+      },
+    ],
   },
 ];
 
 export const Sections = () => {
   const sectionRefs = useRef<any[]>([]);
 
-  const [selectedElement, setSelectedElement] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (selectedElement === null) return;
-
-    console.log(selectedElement);
-
+  const scrollTo = (selectedElement: number) => {
     sectionRefs?.current[selectedElement]?.scrollIntoView();
-  }, [sectionRefs, selectedElement]);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
-      <div className="grid grid-rows-2 grid-cols-4 grid-flow-col gap-2 h-[500px] mb-60 cursor-pointer">
+      {/* in mobile, set cols to 1 */}
+      <div className="grid grid-rows-2 grid-cols-4 grid-flow-col gap-2  mb-60 cursor-pointer w-[100%]">
         {sections.map((element, i) => (
           <Block
             key={i}
             styles={element.blockStyle}
-            onClick={() => setSelectedElement(i)}
+            onClick={() => scrollTo(i)}
             emoji={element.emoji}
           >
             {element.text}
@@ -132,22 +185,25 @@ export const Sections = () => {
         ))}
       </div>
       {sections.map((element, i) => (
-        <div key={i} ref={(el) => (sectionRefs.current[i] = el)}>
-          <h3
-            className={`${element.sectionTitleStyle} text-white font-bold text-4xl border-b mb-14`}
-          >
-            {element.text}
-          </h3>
-          <div className="grid grid-rows-2 grid-cols-4 grid-flow-col gap-2 h-[500px] mb-60">
-            {element.items?.map((item, i) => (
-              <Item
-                item={item}
-                sectionBlocksStyle={element.sectionBlocksStyle}
-                key={i}
-              />
-            ))}
+        <>
+          <div key={i} ref={(el) => (sectionRefs.current[i] = el)}>
+            <h1 className="text-5xl mb-4 pt-32">{element.emoji}</h1>
+            <h3
+              className={`${element.sectionTitleStyle} text-white font-bold text-4xl border-b mb-14  `}
+            >
+              {element.text}
+            </h3>
+            <div className="lg:grid grid-cols-4 grid-rows-4 grid-flow-col gap-2 mb-32 sm:grid-cols-1">
+              {element.items?.map((item, i) => (
+                <Item
+                  item={item}
+                  sectionBlocksStyle={element.sectionBlocksStyle}
+                  key={i}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       ))}
     </>
   );
@@ -163,14 +219,17 @@ export const Item = ({ item, sectionBlocksStyle }: any) => {
   return (
     <div
       onClick={handleClick}
-      className={`${sectionBlocksStyle} rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-cover shadow-xl transition-all hover:scale-95 hover:bg-blend-normal bg-brightness-50 hover:text-transparent text-black hover:bg-grey-500  bg-blend-soft-light cursor-pointer`}
+      className={`${sectionBlocksStyle} rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-cover  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black  cursor-pointer bg-blend-soft-light w-[100%]`}
     >
-      {isActive ? (
+      {isActive && item.links ? (
         Object.entries(item.links).map(([key, value]: any) => (
           <a
             href={value}
             key={key}
-            className={`${sectionBlocksStyle} hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5`}
+            className={`${sectionBlocksStyle} p-2 m-3 rounded-lg  text-2xl border-x-black drop-shadow-lg hover:bg-black hover:text-white text-black`}
+            // open in new tab
+            target="_blank"
+            rel="noreferrer"
           >
             {key}
           </a>

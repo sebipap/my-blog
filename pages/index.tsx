@@ -1,9 +1,9 @@
 import Head from "next/head";
+import { useCallback } from "react";
 import { Sections } from "../components/sections";
 
 export default function Home() {
   return (
-    // 1000px container
     <>
       <Head>
         <title>Sebastián Papanicolau</title>
@@ -18,6 +18,7 @@ export default function Home() {
           </h1>
           <h5 className="text-white mb-9 ">trying out cool stuff</h5>
         </div>
+
         <Sections />
       </div>
     </>
