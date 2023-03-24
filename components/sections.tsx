@@ -142,6 +142,10 @@ const sections = [
     sectionBlocksStyle: "bg-blue-400",
     items: [
       {
+        title: "Download",
+        href: "/resume.pdf",
+      },
+      {
         title: "UTN Systems Engineer",
         description: "2020 - 2022",
         img: "bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq4IoxAIVlGrzrzCQXSy-VgzKPiR_4D5iOYENPW1FE4cYEZ7VLkW4wtVtapak7G82Etxc&usqp=CAU')]",
@@ -217,29 +221,31 @@ export const Item = ({ item, sectionBlocksStyle }: any) => {
   }, []);
 
   return (
-    <div
-      onClick={handleClick}
-      className={`${sectionBlocksStyle} rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-cover  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black  cursor-pointer bg-blend-soft-light w-[100%]`}
-    >
-      {isActive && item.links ? (
-        Object.entries(item.links).map(([key, value]: any) => (
-          <a
-            href={value}
-            key={key}
-            className={`${sectionBlocksStyle} p-2 m-3 rounded-lg  text-2xl border-x-black drop-shadow-lg hover:bg-black hover:text-white text-black`}
-            // open in new tab
-            target="_blank"
-            rel="noreferrer"
-          >
-            {key}
+    <a href={item.href}>
+      <div
+        onClick={handleClick}
+        className={`${sectionBlocksStyle} rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-cover  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black  cursor-pointer bg-blend-soft-light w-[100%]`}
+      >
+        {isActive && item.links ? (
+          Object.entries(item.links).map(([key, value]: any) => (
+            <a
+              href={value}
+              key={key}
+              className={`${sectionBlocksStyle} p-2 m-3 rounded-lg  text-2xl border-x-black drop-shadow-lg hover:bg-black hover:text-white text-black`}
+              // open in new tab
+              target="_blank"
+              rel="noreferrer"
+            >
+              {key}
+            </a>
+          ))
+        ) : (
+          <a>
+            <p>{item.description}</p>
+            <h5 className={`text-xl font-bold`}>{item.title}</h5>
           </a>
-        ))
-      ) : (
-        <>
-          <p>{item.description}</p>
-          <h5 className={`text-xl font-bold`}>{item.title}</h5>
-        </>
-      )}
-    </div>
+        )}
+      </div>
+    </a>
   );
 };
