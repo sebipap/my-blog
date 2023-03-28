@@ -224,7 +224,7 @@ export const Item = ({ item, sectionBlocksStyle }: any) => {
     <a href={item.href}>
       <div
         onClick={handleClick}
-        className={`${sectionBlocksStyle} rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-cover  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black  cursor-pointer bg-blend-soft-light w-[100%]`}
+        className={`${sectionBlocksStyle} rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-contain  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black  cursor-pointer bg-blend-soft-light w-[100%]`}
       >
         {isActive && item.links ? (
           Object.entries(item.links).map(([key, value]: any) => (
