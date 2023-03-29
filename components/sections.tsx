@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 const Block = ({
   children,
@@ -114,6 +114,7 @@ const sections = [
     items: [
       {
         title: "Github",
+        description: "@sebipap",
         links: {
           "Follow Me": "https://github.com/sebipap",
         },
@@ -121,6 +122,7 @@ const sections = [
       },
       {
         title: "LinkedIn",
+
         links: {
           "Follow Me":
             "https://www.linkedin.com/in/sebasti%C3%A1n-papanicolau-10baa91b1/",
@@ -142,8 +144,9 @@ const sections = [
     sectionBlocksStyle: "bg-blue-400",
     items: [
       {
-        title: "Download",
+        title: "PDF Resume",
         href: "/resume.pdf",
+        description: "Download",
       },
       {
         title: "UTN Systems Engineer",
