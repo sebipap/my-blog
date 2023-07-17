@@ -29,66 +29,61 @@ const sections = [
     sectionBlocksStyle: "bg-indigo-500 shadow-indigo-300/5",
     items: [
       {
+        title: "event managemer",
+        description: "automatically add events.",
+        href: "https://github.com/sebipap/managemer",
+      },
+      {
+        title: "mani",
+        description: "insights about your spending ",
+        href: "https://github.com/sebipap/mani",
+      },
+      {
+        title: "CryptoSapp",
+        description: "crypto wallet in whatsapp bot",
+        href: "https://github.com/NicolasMontone/cryptosapp-wallet",
+      },
+
+      {
         title: "La Voluntad",
         description: "Restaurant Website.",
         img: "hover:bg-[url('https://lavoluntad.vercel.app/gallery/0.jpg')]",
-        links: {
-          Open: "https://lavoluntad.vercel.app/",
-          Github: "https://github.com/sebipap/la-voluntad",
-        },
+        href: "https://github.com/sebipap/la-voluntad",
       },
       {
         title: "money mover",
         description: "get steps to move money.",
-        links: {
-          Open: "https://money-mover.vercel.app/",
-          Github: "https://github.com/sebipap/money-mover",
-        },
+        href: "https://github.com/sebipap/money-mover",
       },
       {
         title: "Open Ticket",
         description: "Ticketing for events.",
         img: "hover:bg-[url('https://sebipap.github.io/img/openticket.png')]",
-        links: {
-          Open: "https://openticket-front.herokuapp.com/",
-          Github: "https://github.com/sebipap/openticket-backend",
-        },
+        href: "https://github.com/sebipap/openticket-backend",
       },
       {
         title: "Auto Trader",
         description: "Marketplace for cars.",
         img: "hover:bg-[url('https://sebipap.github.io/img/auto-trader.png')]",
-        links: {
-          Open: "https://auto-trader-arg.herokuapp.com/posts",
-          Github: "https://github.com/sebipap/AutoTrader.git",
-        },
+        href: "https://github.com/sebipap/AutoTrader.git",
       },
       {
         title: "Crypto Dolar Blue",
         description: "Live prices for crypto and fiat currencies.",
         img: "hover:bg-[url('https://sebipap.github.io/img/crypto-dolar-blue.png')]",
-        links: {
-          Open: "https://crypto-dolar-blue.herokuapp.com/posts",
-          Github: "https://github.com/sebipap/crypto-dolar-blue",
-        },
+        href: "https://github.com/sebipap/crypto-dolar-blue",
       },
       {
         title: "OpenBank",
-        description: "Home banking POC with transfers and QR code payments.",
+        description: "Home banking with transfers and QR code payments.",
         img: "col-span-2 hover:bg-[url('https://sebipap.github.io/img/openbank.jpg')]",
-        links: {
-          Open: "https://sebipaps-openbank.herokuapp.com/",
-          Github: "https://github.com/sebipap/openbank",
-        },
+        href: "https://github.com/sebipap/openbank",
       },
       {
         title: "PokerStats",
         description: "Poker odds calculator.",
         img: "hover:bg-[url('https://sebipap.github.io/img/pokerstats.jpg')]",
-        links: {
-          Open: "https://poker-odds-calulator.herokuapp.com/",
-          Github: "https://github.com/sebipap/pokerodds",
-        },
+        href: "https://github.com/sebipap/pokerodds",
       },
     ],
   },
@@ -115,18 +110,13 @@ const sections = [
       {
         title: "Github",
         description: "@sebipap",
-        links: {
-          "Follow Me": "https://github.com/sebipap",
-        },
+        href: "https://github.com/sebipap",
         img: "col-span-2 row-span-2 bg-[url('https://cdn-icons-png.flaticon.com/512/25/25231.png')]",
       },
       {
         title: "LinkedIn",
 
-        links: {
-          "Follow Me":
-            "https://www.linkedin.com/in/sebasti%C3%A1n-papanicolau-10baa91b1/",
-        },
+        href: "https://www.linkedin.com/in/sebasti%C3%A1n-papanicolau-10baa91b1/",
         img: "col-span-2 bg-[url('https://proinfluent.b-cdn.net/wp-content/uploads/2019/05/Logo-LinkedIn-blanc.png')]",
       },
       {
@@ -155,8 +145,13 @@ const sections = [
       },
       {
         title: "Pluggy",
-        description: "Dev since feb '22",
+        description: "Dev mar '22 - apr '23",
         img: "bg-[url('https://avatars.githubusercontent.com/u/52629757?s=280&v=4')]",
+      },
+      {
+        title: "Exactly",
+        description: "Dev since apr '23",
+        img: "bg-[url('https://avatars.githubusercontent.com/u/83888950?s=200&v=4')]",
       },
     ],
   },
@@ -169,16 +164,8 @@ export const Sections = () => {
     sectionRefs?.current[selectedElement]?.scrollIntoView();
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <>
-      {/* in mobile, set cols to 1 */}
       <div className="grid grid-rows-2 grid-cols-4 grid-flow-col gap-2  mb-60 cursor-pointer w-[100%]">
         {sections.map((element, i) => (
           <Block
@@ -200,12 +187,12 @@ export const Sections = () => {
             >
               {element.text}
             </h3>
-            <div className="lg:grid grid-cols-4 grid-rows-4 grid-flow-col gap-2 mb-32 sm:grid-cols-1">
-              {element.items?.map((item, i) => (
+            <div className="grid lg:grid-cols-4 gap-2 mb-32 sm:grid-cols-1">
+              {element.items?.map((item) => (
                 <Item
                   item={item}
                   sectionBlocksStyle={element.sectionBlocksStyle}
-                  key={i}
+                  key={item.title}
                 />
               ))}
             </div>
@@ -217,38 +204,13 @@ export const Sections = () => {
 };
 
 export const Item = ({ item, sectionBlocksStyle }: any) => {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleClick = useCallback(() => {
-    setIsActive((p) => !p);
-  }, []);
-
   return (
-    <a href={item.href}>
-      <div
-        onClick={handleClick}
-        className={`${sectionBlocksStyle} rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-contain  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black  cursor-pointer bg-blend-soft-light w-[100%]`}
-      >
-        {isActive && item.links ? (
-          Object.entries(item.links).map(([key, value]: any) => (
-            <a
-              href={value}
-              key={key}
-              className={`${sectionBlocksStyle} p-2 m-3 rounded-lg  text-2xl border-x-black drop-shadow-lg hover:bg-black hover:text-white text-black`}
-              // open in new tab
-              target="_blank"
-              rel="noreferrer"
-            >
-              {key}
-            </a>
-          ))
-        ) : (
-          <a>
-            <p>{item.description}</p>
-            <h5 className={`text-xl font-bold`}>{item.title}</h5>
-          </a>
-        )}
-      </div>
+    <a
+      href={item.href}
+      className={`${sectionBlocksStyle} col-span-2 rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-contain  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black cursor-pointer bg-blend-soft-light`}
+    >
+      <p>{item.description}</p>
+      <h5 className={`text-xl font-bold`}>{item.title}</h5>
     </a>
   );
 };
