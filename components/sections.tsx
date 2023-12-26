@@ -12,7 +12,7 @@ const Block = ({
   onClick?: () => void;
 }) => (
   <div
-    className={`${styles} rounded-[60px] p-10 flex flex-col-reverse transition-all hover:scale-95 hover:opacity-90 shadow-2xl`}
+    className={`${styles} sm:col-span-full rounded-[60px] p-10 flex flex-col-reverse transition-all hover:scale-95 hover:opacity-90 shadow-2xl `}
     onClick={onClick}
   >
     <p className={`font-semibold text-lg`}>{children}</p>
@@ -24,9 +24,9 @@ const sections = [
   {
     text: "Projects",
     emoji: "🚀",
-    blockStyle: "bg-indigo-500 col-span-2 row-span-2 hover:shadow-indigo/20",
-    sectionTitleStyle: "border-indigo-500",
-    sectionBlocksStyle: "bg-indigo-500 shadow-indigo-300/5",
+    blockStyle: "bg-[#c0f469] col-span-2 row-span-2 hover:shadow-indigo/20",
+    sectionTitleStyle: "border-[#c0f469]",
+    sectionBlocksStyle: "bg-[#c0f469] shadow-indigo-300/5",
     items: [
       {
         title: "event managemer",
@@ -95,8 +95,8 @@ const sections = [
     sectionBlocksStyle: "bg-green-400",
     items: [
       {
-        title: "Upcoming",
-        description: "Se vienen cositas.",
+        title: "Meditations about the future of software engineering",
+        href: "https://medium.com/@sebipaps/meditations-about-the-future-of-software-engineering-2bbc021cc9ca",
       },
     ],
   },
