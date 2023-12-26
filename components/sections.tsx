@@ -12,7 +12,7 @@ const Block = ({
   onClick?: () => void;
 }) => (
   <div
-    className={`${styles} sm:col-span-full rounded-[60px] p-10 flex flex-col-reverse transition-all hover:scale-95 hover:opacity-90 shadow-2xl `}
+    className={`col-span-full ${styles} rounded-[60px] p-10 flex flex-col-reverse transition-all hover:scale-95 hover:opacity-90 shadow-2xl `}
     onClick={onClick}
   >
     <p className={`font-semibold text-lg`}>{children}</p>
@@ -24,7 +24,7 @@ const sections = [
   {
     text: "Projects",
     emoji: "🚀",
-    blockStyle: "bg-[#c0f469] col-span-2 row-span-2 hover:shadow-indigo/20",
+    blockStyle: "bg-[#c0f469] lg:col-span-2 row-span-2 hover:shadow-indigo/20",
     sectionTitleStyle: "border-[#c0f469]",
     sectionBlocksStyle: "bg-[#c0f469] shadow-indigo-300/5",
     items: [
@@ -76,7 +76,7 @@ const sections = [
       {
         title: "OpenBank",
         description: "Home banking with transfers and QR code payments.",
-        img: "col-span-2 hover:bg-[url('https://sebipap.github.io/img/openbank.jpg')]",
+        img: "lg:col-span-2 hover:bg-[url('https://sebipap.github.io/img/openbank.jpg')]",
         href: "https://github.com/sebipap/openbank",
       },
       {
@@ -90,7 +90,8 @@ const sections = [
   {
     text: "Blog",
     emoji: "📗",
-    blockStyle: "bg-green-400 col-span-1 row-span-1 hover:shadow-green-400/20",
+    blockStyle:
+      "bg-green-400 lg:col-span-1 row-span-1 hover:shadow-green-400/20",
     sectionTitleStyle: "border-green-400",
     sectionBlocksStyle: "bg-green-400",
     items: [
@@ -103,7 +104,7 @@ const sections = [
   {
     text: "Contact",
     emoji: "📱",
-    blockStyle: "bg-teal-400 col-span-2 row-span-1 hover:shadow-teal-400/20",
+    blockStyle: "bg-teal-400 lg:col-span-2 row-span-1 hover:shadow-teal-400/20",
     sectionTitleStyle: "border-teal-400",
     sectionBlocksStyle: "bg-teal-400",
     items: [
@@ -111,13 +112,13 @@ const sections = [
         title: "Github",
         description: "@sebipap",
         href: "https://github.com/sebipap",
-        img: "col-span-2 row-span-2 bg-[url('https://cdn-icons-png.flaticon.com/512/25/25231.png')]",
+        img: "lg:col-span-2 row-span-2 bg-[url('https://cdn-icons-png.flaticon.com/512/25/25231.png')]",
       },
       {
         title: "LinkedIn",
 
         href: "https://www.linkedin.com/in/sebasti%C3%A1n-papanicolau-10baa91b1/",
-        img: "col-span-2 bg-[url('https://proinfluent.b-cdn.net/wp-content/uploads/2019/05/Logo-LinkedIn-blanc.png')]",
+        img: "lg:col-span-2 bg-[url('https://proinfluent.b-cdn.net/wp-content/uploads/2019/05/Logo-LinkedIn-blanc.png')]",
       },
       {
         title: "Email",
@@ -129,7 +130,7 @@ const sections = [
   {
     text: "Resume",
     emoji: "👨‍💻",
-    blockStyle: "bg-blue-400 col-span-1 row-span-1 hover:shadow-blue-400/20",
+    blockStyle: "bg-blue-400 lg:col-span-1 row-span-1 hover:shadow-blue-400/20",
     sectionTitleStyle: "border-blue-400",
     sectionBlocksStyle: "bg-blue-400",
     items: [
@@ -207,7 +208,7 @@ export const Item = ({ item, sectionBlocksStyle }: any) => {
   return (
     <a
       href={item.href}
-      className={`${sectionBlocksStyle} col-span-2 rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-contain  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black cursor-pointer bg-blend-soft-light`}
+      className={`${sectionBlocksStyle} lg:col-span-2 rounded-[60px] p-10 flex flex-col-reverse transition-all ${item.img} bg-contain  shadow-xl transition-all hover:scale-95 bg-brightness-50 text-black cursor-pointer bg-blend-soft-light`}
     >
       <p>{item.description}</p>
       <h5 className={`text-xl font-bold`}>{item.title}</h5>
