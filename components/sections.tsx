@@ -29,6 +29,11 @@ const sections = [
     sectionBlocksStyle: "bg-[#c0f469] shadow-indigo-300/5",
     items: [
       {
+        title: "Render A House",
+        description: "Transform architectural drawings into realistic images",
+        href: "https://renderahouse.com",
+      },
+      {
         title: "event managemer",
         description: "automatically add events.",
         href: "https://github.com/sebipap/managemer",
